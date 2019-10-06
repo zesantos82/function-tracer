@@ -13,7 +13,7 @@ def run_grep(function_name, path):
     command = 'grep -nr {} {}'.format(function_name, path)
     print(colored('running "{}"'.format(command), 'blue'))
     grep_results = popen(command).read()
-    time_diff = round((datetime.now() - time_start).microseconds / 1000000, 2)
+    time_diff = round((datetime.now() - time_start).microseconds / 1000000, 2)  # something is busted with this calculation.
     print(colored("grep took {} seconds. Building dependency tree...".format(time_diff), 'blue', attrs=['bold']))
 
     parse_grep_results(grep_results, function_name + '(')
